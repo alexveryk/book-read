@@ -1,0 +1,159 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f4f6;
+}
+
+.auth-logo {
+  font-weight: 800;
+  font-size: 28px;
+  padding: 24px 16px;
+  text-align: center;
+  color: #ff6b08;
+}
+
+.auth-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 760px;
+  box-sizing: border-box;
+}
+
+.form-card {
+  background: #11121a;
+  color: #fff;
+  padding: 28px;
+  border-radius: 12px;
+}
+
+.form-card .form-wrapper {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  max-width: 100%;
+}
+
+.secondary-card {
+  background: #fff;
+  color: #333;
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.quote-text {
+  font-style: italic;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.quote-author {
+  margin-top: 12px;
+  color: #777;
+}
+
+.secondary-title {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.benefit-item strong {
+  display: block;
+  color: #111;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .auth-container {
+    background: url("../assets/library-bg.jpg") no-repeat center/cover;
+  }
+
+  .auth-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .form-card,
+  .secondary-card {
+    max-width: 700px;
+    background: #fff;
+    color: #222;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    padding: 28px;
+  }
+
+  .form-card .auth-form input {
+    background: #fff;
+    color: #222;
+  }
+}
+
+@media (min-width: 1280px) {
+  .auth-container {
+    flex-direction: row;
+  }
+
+  .auth-logo {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    font-size: 30px;
+  }
+
+  .auth-main {
+    flex: 1;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+  }
+
+  .form-card {
+    flex: 1;
+    max-width: 720px;
+    margin: 80px 80px;
+    background: #fff;
+    border-radius: 8px;
+    align-self: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    color: #111;
+  }
+
+  .secondary-card {
+    flex: 1;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+  }
+
+  .auth-container::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background: url("../assets/library-bg.jpg") no-repeat center/cover;
+    z-index: -1;
+  }
+}
