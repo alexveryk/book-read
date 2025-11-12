@@ -1,0 +1,415 @@
+.training-page {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: #222;
+}
+
+.training-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.training-header .logo {
+  font-weight: 700;
+}
+
+.training-header .user-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.training-main {
+  display: flex;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.left-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.right-col {
+  width: 260px;
+}
+
+.section-title {
+  background: #f4f6f8;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 0 0 6px 0;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.period-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.period-row label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.add-book-row-setup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.add-book-row-setup select {
+  padding: 8px;
+  min-width: 280px;
+}
+
+.btn-outline {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.training-start-btn {
+  background: #ff8c42;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.training-start-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.results-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.results-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.results-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.btn-save {
+  background: #ff8c42;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.results-log {
+  margin-top: 8px;
+}
+
+.results-log ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.results-log li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #f0f0f0;
+  color: #334;
+}
+
+.empty-log {
+  color: #9aa0a6;
+}
+
+.setup-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.setup-table th,
+.setup-table td {
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+}
+
+.placeholder-row td {
+  color: #9aa0a6;
+  text-align: center;
+}
+
+.chart-header {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.chart-placeholder {
+  border: 1px dashed #e6eef7;
+  border-radius: 6px;
+  padding: 18px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.dot.plan {
+  background: #2b6cb0;
+}
+
+.dot.fact {
+  background: #ff8c42;
+}
+
+.chart-area {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa0a6;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #666;
+}
+
+@media (max-width: 480px) {
+  .training-main {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .left-col,
+  .right-col {
+    width: 100%;
+  }
+
+  .right-col {
+    margin-top: 12px;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .book-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .book-card {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .book-icon {
+    width: 42px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .book-content {
+    flex: 1;
+  }
+
+  .book-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .book-meta {
+    font-size: 13px;
+    color: #666;
+  }
+
+  .book-action {
+    display: flex;
+    align-items: center;
+  }
+
+  .results-panel {
+    width: 100%;
+  }
+
+  .results-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .results-form label {
+    width: 100%;
+  }
+
+  .results-form input,
+  .results-form select {
+    width: 100%;
+  }
+
+  .results-form .btn-save,
+  .results-form .btn-outline {
+    width: 100%;
+  }
+
+  .fab {
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #ff8c42;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+    border: none;
+    cursor: pointer;
+    z-index: 60;
+  }
+
+  .fab.hidden {
+    display: none;
+  }
+
+  .setup-modal {
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    z-index: 70;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .setup-modal-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .setup-modal-body {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.mobile-only {
+  display: none;
+}
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+}
+
+.confirm-modal {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  width: min(92%, 360px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+.confirm-modal p {
+  margin: 0 0 8px 0;
+}
+
+.confirm-modal .btn-outline {
+  background: #fff;
+  border: 1px solid #333;
+  color: #333;
+}
+
+.confirm-modal .btn-save {
+  background: #ff8c42;
+  color: #fff;
+}

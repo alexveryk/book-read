@@ -1,0 +1,175 @@
+.td-page {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: #222;
+}
+
+.td-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.td-main {
+  max-width: 1200px;
+  margin: 16px auto;
+  padding: 12px;
+}
+
+.td-topTimers {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.timer {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.timer-label {
+  font-size: 13px;
+  color: #666;
+}
+
+.timer-value {
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+.td-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+}
+
+.td-leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.td-rightCol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.td-bottomRight {
+  margin-top: 12px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.books-list .list-scroll {
+  max-height: 260px;
+  overflow: auto;
+}
+
+.setup-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.setup-table th,
+.setup-table td {
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+}
+
+.setup-table tr.read td {
+  opacity: 0.7;
+}
+
+.chk {
+  width: 16px;
+  height: 16px;
+}
+
+.chk-checked {
+  accent-color: #ff8c42;
+  width: 16px;
+  height: 16px;
+}
+
+.chart {
+  min-height: 220px;
+}
+
+.td-chart {
+  width: 100%;
+  height: 180px;
+}
+
+.results .result-form {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.results .result-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.btn-save {
+  background: #ff8c42;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat .value {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.stat .label {
+  color: #666;
+  font-size: 13px;
+}
+
+.log {
+  max-height: 160px;
+  overflow: auto;
+  margin-top: 8px;
+}
+
+.empty-log {
+  color: #9aa0a6;
+}
