@@ -39,64 +39,66 @@ export default function Header() {
 
   return (
     <header className="app-header" ref={headerRef}>
-      <div
-        className="header-left"
-        onClick={() => requestNavigation(() => navigate("/"))}
-        style={{ cursor: "pointer" }}>
-        <div className="logo">BR</div>
-      </div>
-      <div className="header-center">
+      <div className="header-content">
         <div
-          className="avatar desktop-avatar"
-          onClick={() => setOpen((s) => !s)}>
-          {avatarChar}
+          className="header-left"
+          onClick={() => requestNavigation(() => navigate("/"))}
+          style={{ cursor: "pointer" }}>
+          <div className="logo">BR</div>
         </div>
-        <div className="username">{displayName}</div>
-      </div>
-
-      <div className="header-right">
-        <button
-          className="icon-btn"
-          title="Мої тренування"
-          onClick={() => requestNavigation(() => navigate("/training"))}>
-          icon-btn
-        </button>
-
-        <button
-          className="icon-btn"
-          title="Бібліотека"
-          onClick={() => requestNavigation(() => navigate("/library"))}>
-          icon-btn
-        </button>
-
-        <div
-          className="avatar mobile-avatar"
-          onClick={() => setOpen((s) => !s)}>
-          {avatarChar}
+        <div className="header-center">
+          <div
+            className="avatar desktop-avatar"
+            onClick={() => setOpen((s) => !s)}>
+            {avatarChar}
+          </div>
+          <div className="username">{displayName}</div>
         </div>
 
-        <button
-          className="logout-link"
-          onClick={() => requestNavigation(() => handleLogout())}>
-          Вихід
-        </button>
-      </div>
-
-      {open && (
-        <div className="avatar-menu" role="menu">
+        <div className="header-right">
           <button
-            className="menu-item"
-            onClick={() => {
-              setOpen(false);
-              navigate("/profile");
-            }}>
-            Профіль
+            className="icon-btn"
+            title="Мої тренування"
+            onClick={() => requestNavigation(() => navigate("/training"))}>
+            icon-btn
           </button>
-          <button className="menu-item" onClick={handleLogout}>
+
+          <button
+            className="icon-btn"
+            title="Бібліотека"
+            onClick={() => requestNavigation(() => navigate("/library"))}>
+            icon-btn
+          </button>
+
+          <div
+            className="avatar mobile-avatar"
+            onClick={() => setOpen((s) => !s)}>
+            {avatarChar}
+          </div>
+
+          <button
+            className="logout-link"
+            onClick={() => requestNavigation(() => handleLogout())}>
             Вихід
           </button>
         </div>
-      )}
+
+        {open && (
+          <div className="avatar-menu" role="menu">
+            <button
+              className="menu-item"
+              onClick={() => {
+                setOpen(false);
+                navigate("/profile");
+              }}>
+              Профіль
+            </button>
+            <button className="menu-item" onClick={handleLogout}>
+              Вихід
+            </button>
+          </div>
+        )}
+      </div>
     </header>
   );
 }
