@@ -74,8 +74,6 @@ export const Library = () => {
       <Header />
 
       <main className="library-main">
-        <h2 className="page-title">📚 Ваша бібліотека</h2>
-
         <div className="add-book-row">
           <input
             type="text"
@@ -109,30 +107,27 @@ export const Library = () => {
 
         {books.length === 0 ? (
           <section className="empty-state">
-            <div className="empty-illustration">📖</div>
             <div className="empty-content">
-              <h3>Ваша бібліотека порожня</h3>
-              <p>
-                Почніть з додавання першої книги або ознайомтеся з початковими
-                кроками:
-              </p>
-
               <div className="steps">
                 <div className="step">
-                  <div className="step-icon">📚</div>
+                  <div className="step-icon"></div>
                   <div className="step-body">
-                    <h4>Крок 1. Створіть особисту бібліотеку</h4>
-                    <p>Додайте до неї книжки, які маєте намір прочитати. 🔥</p>
+                    <h4>Крок 1</h4>
+                    <p>Створіть особисту бібліотеку</p>
+                    <span>
+                      Додайте до неї книжки, які маєте намір прочитати.
+                    </span>
                   </div>
                 </div>
 
                 <div className="step">
-                  <div className="step-icon">🏁</div>
+                  <div className="step-icon"></div>
                   <div className="step-body">
-                    <h4>Крок 2. Сформуйте своє перше тренування</h4>
-                    <p>
-                      Визначте ціль, оберіть період, розпочинайте тренування. 🔥
-                    </p>
+                    <h4>Крок 2.</h4>
+                    <p>Сформуйте своє перше тренування</p>
+                    <span>
+                      Визначте ціль, оберіть період, розпочинайте тренування.
+                    </span>
                   </div>
                 </div>
               </div>
