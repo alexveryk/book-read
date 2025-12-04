@@ -14,7 +14,6 @@ export default function TrainingDashboard({ userId }) {
   const [trainingPlan, setTrainingPlan] = useState(null);
   const [entries, setEntries] = useState([]);
 
-  // Завантаження поточного тренування з Firebase
   useEffect(() => {
     const loadTraining = async () => {
       const trainingRef = doc(db, "trainings", userId);

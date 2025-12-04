@@ -10,7 +10,6 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../../../firebase/firebase";
 
-// Початковий стан
 const initialState = {
   list: [],
   loading: false,
@@ -22,7 +21,6 @@ const initialState = {
   },
 };
 
-// ──────────────── ADD BOOK ────────────────
 export const addBook = createAsyncThunk("books/addBook", async (bookData) => {
   if (!auth.currentUser) throw new Error("User not logged in");
 
@@ -36,7 +34,6 @@ export const addBook = createAsyncThunk("books/addBook", async (bookData) => {
   return { id: docRef.id, ...payload };
 });
 
-// ──────────────── UPDATE BOOK ────────────────
 export const updateBook = createAsyncThunk(
   "books/updateBook",
   async ({ id, ...changes }) => {
@@ -46,7 +43,6 @@ export const updateBook = createAsyncThunk(
   }
 );
 
-// ──────────────── LOAD BOOKS FOR USER ────────────────
 export const loadBooks = createAsyncThunk("books/loadBooks", async () => {
   if (!auth.currentUser) throw new Error("User not logged in");
 
@@ -59,7 +55,6 @@ export const loadBooks = createAsyncThunk("books/loadBooks", async () => {
   return snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
 });
 
-// ──────────────── SLICE ────────────────
 const booksSlice = createSlice({
   name: "books",
   initialState,
@@ -67,7 +62,7 @@ const booksSlice = createSlice({
     updateFilters: (state, action) => {
       state.filters = { ...state.filters, ...action.payload };
     },
-    // Додаємо редьюсер для onSnapshot
+
     setBooksFromFirebase: (state, action) => {
       state.list = action.payload;
     },

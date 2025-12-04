@@ -30,7 +30,6 @@ export const Library = () => {
 
   const [error, setError] = useState("");
 
-  // ──────────────── Підвантаження книг ────────────────
   useEffect(() => {
     if (!auth.currentUser) return;
 
@@ -50,7 +49,6 @@ export const Library = () => {
     return () => unsub();
   }, [dispatch]);
 
-  // ──────────────── Додавання книги ────────────────
   const handleAddBook = async () => {
     if (!auth.currentUser) {
       setError("Спершу увійдіть у свій акаунт");
@@ -80,7 +78,6 @@ export const Library = () => {
     }
   };
 
-  // ──────────────── Модалка для редагування рейтингу/резюме ────────────────
   const [modalOpen, setModalOpen] = useState(false);
   const [modalBook, setModalBook] = useState(null);
   const [modalRating, setModalRating] = useState(0);

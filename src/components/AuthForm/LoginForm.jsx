@@ -38,7 +38,6 @@ export const LoginForm = () => {
   return (
     <div className="form-wrapper">
       <button className="google-btn" onClick={handleGoogleLogin} type="button">
-        {/* <img src="" alt="Google icon" /> */}
         Увійти через Google
       </button>
 
