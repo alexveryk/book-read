@@ -54,10 +54,10 @@ export const RegistrationForm = () => {
         className="google-btn"
         type="button"
         onClick={handleGoogleRegister}>
-        <img
+        {/* <img
           src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
           alt="Google icon"
-        />
+        /> */}
         Зареєструватися через Google
       </button>
 

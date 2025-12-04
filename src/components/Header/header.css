@@ -81,15 +81,15 @@
   align-items: center;
 }
 .header-right .icon-btn {
-  background: transparent;
+  background: #e6f0fb;
   border: none;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
   padding: 6px 8px;
   border-radius: 6px;
 }
 .header-right .icon-btn:hover {
-  background: #f2f6fb;
+  background: #a2c9f8;
 }
 .header-right .logout-link {
   background: transparent;

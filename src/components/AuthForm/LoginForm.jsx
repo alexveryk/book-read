@@ -38,10 +38,7 @@ export const LoginForm = () => {
   return (
     <div className="form-wrapper">
       <button className="google-btn" onClick={handleGoogleLogin} type="button">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-          alt="Google icon"
-        />
+        {/* <img src="" alt="Google icon" /> */}
         Увійти через Google
       </button>
 

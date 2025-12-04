@@ -4,7 +4,7 @@ import {
   signOut,
   signInWithPopup,
 } from "firebase/auth";
-import { auth, googleProvider } from "../firebase";
+import { auth, googleProvider } from "../firebase/firebase";
 
 export const registerUser = async (email, password) => {
   const userCredential = await createUserWithEmailAndPassword(

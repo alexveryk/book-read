@@ -134,9 +134,13 @@
 }
 
 .btn-delete {
-  background: transparent;
+  background: rgb(233, 103, 103);
+  padding: 4px 8px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
+  color: #fff;
+  font-weight: 600;
 }
 
 .stats {

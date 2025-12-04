@@ -38,12 +38,12 @@ export default function ReadList({ books: propBooks, onOpenResume }) {
         <tbody>
           {books.length === 0 ? (
             <tr className="placeholder-row">
-              <td colSpan={7}>📘 Немає прочитаних книг</td>
+              <td colSpan={7}> Немає прочитаних книг</td>
             </tr>
           ) : (
             books.map((b) => (
               <tr key={b.id}>
-                <td className="book-icon-cell">📘</td>
+                <td className="book-icon-cell"></td>
                 <td className="book-title">{b.title}</td>
                 <td className="book-author">{b.author}</td>
                 <td className="book-year">{b.year}</td>

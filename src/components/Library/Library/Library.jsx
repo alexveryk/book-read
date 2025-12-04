@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addBook, updateBook } from "../../../store/features/books/booksSlice";
+import {
+  addBook,
+  updateBook,
+  setBooksFromFirebase,
+} from "../../../store/features/books/booksSlice";
 import "../library.css";
 import Header from "../../Header/Header";
 import ToReadList from "../ToReadList/ToReadList";
 import ReadingList from "../ReadingList/ReadingList";
 import ReadList from "../ReadList/ReadList";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
+
+import { requestNavigation } from "../../../utils/navigationGuard";
+import { useNavigate } from "react-router-dom";
+import { auth, db } from "../../../firebase/firebase";
 
 export const Library = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const books = useSelector((state) => state.books.list);
 
@@ -17,9 +27,36 @@ export const Library = () => {
     year: "",
     pages: "",
   });
+
   const [error, setError] = useState("");
 
-  const handleAddBook = () => {
+  // ──────────────── Підвантаження книг ────────────────
+  useEffect(() => {
+    if (!auth.currentUser) return;
+
+    const q = query(
+      collection(db, "books"),
+      where("userId", "==", auth.currentUser.uid)
+    );
+
+    const unsub = onSnapshot(q, (snapshot) => {
+      const booksFromDb = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      dispatch(setBooksFromFirebase(booksFromDb));
+    });
+
+    return () => unsub();
+  }, [dispatch]);
+
+  // ──────────────── Додавання книги ────────────────
+  const handleAddBook = async () => {
+    if (!auth.currentUser) {
+      setError("Спершу увійдіть у свій акаунт");
+      return;
+    }
+
     if (!newBook.title.trim()) {
       setError("Поле 'Назва книги' не може бути пустим");
       return;
@@ -30,14 +67,20 @@ export const Library = () => {
     const payload = {
       ...newBook,
       status: newBook.status || "to-read",
-
       year: newBook.year ? String(newBook.year) : "",
       pages: newBook.pages ? String(newBook.pages) : "",
     };
-    dispatch(addBook(payload));
-    setNewBook({ title: "", author: "", year: "", pages: "" });
+
+    try {
+      await dispatch(addBook(payload)).unwrap();
+      setNewBook({ title: "", author: "", year: "", pages: "" });
+    } catch (err) {
+      console.error("Помилка додавання книги:", err.message);
+      setError("Не вдалося додати книгу");
+    }
   };
 
+  // ──────────────── Модалка для редагування рейтингу/резюме ────────────────
   const [modalOpen, setModalOpen] = useState(false);
   const [modalBook, setModalBook] = useState(null);
   const [modalRating, setModalRating] = useState(0);
@@ -57,16 +100,20 @@ export const Library = () => {
     setModalSummary("");
   };
 
-  const saveModal = () => {
+  const saveModal = async () => {
     if (!modalBook) return;
-    dispatch(
-      updateBook({
-        id: modalBook.id,
-        rating: modalRating,
-        summary: modalSummary,
-      })
-    );
-    closeModal();
+    try {
+      await dispatch(
+        updateBook({
+          id: modalBook.id,
+          rating: modalRating,
+          summary: modalSummary,
+        })
+      ).unwrap();
+      closeModal();
+    } catch (err) {
+      console.error("Помилка збереження:", err.message);
+    }
   };
 
   return (
@@ -103,6 +150,7 @@ export const Library = () => {
             Додати
           </button>
         </div>
+
         {error && <div className="form-error">{error}</div>}
 
         {books.length === 0 ? (
@@ -119,11 +167,10 @@ export const Library = () => {
                     </span>
                   </div>
                 </div>
-
                 <div className="step">
                   <div className="step-icon"></div>
                   <div className="step-body">
-                    <h4>Крок 2.</h4>
+                    <h4>Крок 2</h4>
                     <p>Сформуйте своє перше тренування</p>
                     <span>
                       Визначте ціль, оберіть період, розпочинайте тренування.
@@ -137,16 +184,20 @@ export const Library = () => {
           <>
             <div className="sections">
               <ReadList onOpenResume={openModal} />
-
               <ReadingList />
-
               <ToReadList />
             </div>
+
             <div className="training-container">
-              <button className="training-btn">Моє тренування</button>
+              <button
+                className="training-btn"
+                onClick={() => requestNavigation(() => navigate("/training"))}>
+                Моє тренування
+              </button>
             </div>
           </>
         )}
+
         {modalOpen && modalBook && (
           <div className="modal-overlay">
             <div className="modal">
@@ -169,7 +220,6 @@ export const Library = () => {
                 onChange={(e) => setModalSummary(e.target.value)}
                 style={{ width: "100%", padding: 8, marginTop: 6 }}
               />
-
               <div
                 style={{
                   display: "flex",

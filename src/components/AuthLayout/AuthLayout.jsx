@@ -1,16 +1,12 @@
 import "./authLayout.css";
 
-export const AuthLayout = ({ children, quote, title, benefits }) => {
+export const AuthLayout = ({ children, quote, benefits }) => {
   return (
     <div className="auth-container">
-      <header className="auth-logo">BR</header>
-
       <main className="auth-main">
         <section className="auth-card form-card">{children}</section>
 
         <section className="auth-card secondary-card">
-          {title && <h2 className="secondary-title">{title}</h2>}
-
           {quote && (
             <div className="quote-block">
               <p className="quote-text">„{quote}“</p>

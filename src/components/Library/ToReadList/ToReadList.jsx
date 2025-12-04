@@ -24,12 +24,12 @@ export default function ToReadList({ books: propBooks }) {
         <tbody>
           {books.length === 0 ? (
             <tr className="placeholder-row">
-              <td colSpan={5}>📘 Список порожній</td>
+              <td colSpan={5}> Список порожній</td>
             </tr>
           ) : (
             books.map((b) => (
               <tr key={b.id}>
-                <td className="book-icon-cell">📗</td>
+                <td className="book-icon-cell"></td>
                 <td className="book-title">{b.title}</td>
                 <td className="book-author">{b.author}</td>
                 <td className="book-year">{b.year}</td>

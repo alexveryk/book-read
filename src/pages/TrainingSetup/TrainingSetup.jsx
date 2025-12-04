@@ -392,7 +392,7 @@ export default function TrainingSetup() {
             <div
               className="card"
               style={{ borderColor: "#cfeadf", background: "#f0fff7" }}>
-              <h4>Тренування завершено 🎉</h4>
+              <h4>Тренування завершено </h4>
               <p>Всі книги у вашому плані відмічені як прочитані.</p>
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
                 <button className="btn-save" onClick={finalizeTraining}>
@@ -459,7 +459,7 @@ export default function TrainingSetup() {
               <tbody>
                 {selectedBooks.length === 0 ? (
                   <tr className="placeholder-row">
-                    <td colSpan={5}>📘 --</td>
+                    <td colSpan={5}> --</td>
                   </tr>
                 ) : (
                   selectedBooks.map((b) => {
@@ -476,7 +476,7 @@ export default function TrainingSetup() {
                             <button
                               className="btn-delete"
                               onClick={() => removeSelectedBook(b.id)}>
-                              🗑️
+                              видалити
                             </button>
                           ) : (
                             <input

@@ -2,9 +2,10 @@ import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
+
 import { requestNavigation } from "../../utils/navigationGuard";
 import "./header.css";
+import { auth } from "../../firebase/firebase";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -60,14 +61,14 @@ export default function Header() {
             className="icon-btn"
             title="Мої тренування"
             onClick={() => requestNavigation(() => navigate("/training"))}>
-            icon-btn
+            Тренування
           </button>
 
           <button
             className="icon-btn"
             title="Бібліотека"
             onClick={() => requestNavigation(() => navigate("/library"))}>
-            icon-btn
+            Бібліотека
           </button>
 
           <div
@@ -82,22 +83,6 @@ export default function Header() {
             Вихід
           </button>
         </div>
-
-        {open && (
-          <div className="avatar-menu" role="menu">
-            <button
-              className="menu-item"
-              onClick={() => {
-                setOpen(false);
-                navigate("/profile");
-              }}>
-              Профіль
-            </button>
-            <button className="menu-item" onClick={handleLogout}>
-              Вихід
-            </button>
-          </div>
-        )}
       </div>
     </header>
   );
